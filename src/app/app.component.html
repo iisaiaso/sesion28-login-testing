@@ -1,9 +1,37 @@
 <div class="py-5 px-10">
+  <!-- <h1>{{title}}</h1> -->
   <div class="py-10 px-5 max-w-md mx-auto">
+
+    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert" *ngIf="alert">
+      <div class="flex">
+        <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+        <div>
+          <p class="font-bold">Estas Logeado</p>
+          <p class="text-sm">Los datos han sido validados!</p>
+        </div>
+      </div>
+    </div>
+
     <div class="py-2 px-10 mx-auto shadow-xl bg-white">
-      <form class="mt-2 mb-8" [formGroup]="formLogin">
-        <h1 class="text-center text-xl font-bold mb-2 text-orange-400">Login</h1>
-        <p class="text-xl text-center py-2 font-semibold">{{formLogin.valid}}</p>
+      <form class="mt-2 mb-2" [formGroup]="formLogin">
+        <h1 class="text-center text-xl font-bold text-orange-400 mb-3">Login</h1>
+           
+        <div class="grid grid-cols-2 w-3/4 mx-auto mt-1" >
+          <div>
+            <h2 class="font-semibold text-md text-center  bg-slate-300">Invalidado</h2>
+          </div>
+          <div>
+            <h2 class="font-semibold text-md text-center  border-l-0 bg-slate-300">Validado</h2>
+          </div>
+       </div> 
+        <div class="grid grid-cols-2 w-3/4 mx-auto mb-3 border-gray-300" [ngSwitch]="formLogin.invalid">
+              <div class="">
+                <div *ngSwitchCase="true" class="py-3 bg-red-400 mx-auto "></div>
+              </div>
+              <div>
+                <div *ngSwitchCase="false" class="py-3 bg-green-400 mx-auto"></div>
+              </div>
+        </div> 
         <div>
           <label for="username">Username</label>
           <input type="text" 
@@ -12,17 +40,19 @@
         </div>
         <div>
           <label for="password">Password</label>
-          <input type="text" 
+          <input type="password" 
           formControlName="password"
           class="w-full border-gray-300 rounded-lg" />
         </div>
         <button
         (click)="onLogin()"
-        class="w-full bg-blue-500 mt-3 py-1 hover:bg-blue-700 text-white"
+        class="btn w-full bg-blue-500 mt-3 py-1 hover:bg-blue-700 text-white"
         >Log in</button>
       </form>
-      <p class="text-md text-center py-2">{{formLogin.value | json}}</p>
-      <p class="text-md text-center py-2 text-green-500">{{result}}</p>
+        <div>
+          <p class="text-md text-center p-1"><strong>Username:</strong> {{formLogin.value.username}}</p>
+          <p class="text-md text-center p-1"><strong>Password:</strong> {{formLogin.value.password}}</p>
+        </div>
     </div>
   </div>
 </div>

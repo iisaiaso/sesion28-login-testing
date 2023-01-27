@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   // username!: string
   // password!: string
   formLogin!: FormGroup
+  result!:string
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -19,6 +20,14 @@ export class AppComponent implements OnInit {
       username: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(5)]]
     })
+  }
+
+  onLogin(){
+    if(this.formLogin.valid == true){
+    this.result = 'Estas Logeado'
+    }else{
+      this.result= ""
+    }
   }
 
 }

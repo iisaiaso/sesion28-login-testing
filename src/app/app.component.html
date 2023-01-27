@@ -17,10 +17,12 @@
           class="w-full border-gray-300 rounded-lg" />
         </div>
         <button
+        (click)="onLogin()"
         class="w-full bg-blue-500 mt-3 py-1 hover:bg-blue-700 text-white"
         >Log in</button>
       </form>
       <p class="text-md text-center py-2">{{formLogin.value | json}}</p>
+      <p class="text-md text-center py-2 text-green-500">{{result}}</p>
     </div>
   </div>
 </div>

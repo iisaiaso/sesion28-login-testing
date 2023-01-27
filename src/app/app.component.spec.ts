@@ -19,19 +19,19 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it('should create the app', () => {
+  it('(1) should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Login'`, () => {
+  it(`(1) should have as title 'Login'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('Login');
   });
 
-  it('should render title', () => {
+  it('(1) should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
@@ -39,7 +39,7 @@ describe('AppComponent', () => {
   });
 
   /**   Testing de formulario valido */
-  it('Debe retornar formulario valido', () => {
+  it('(1) Debe retornar formulario valido', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     fixture.detectChanges()
@@ -50,7 +50,7 @@ describe('AppComponent', () => {
     expect(app.formLogin.invalid).toBeFalsy();
   });
 
-  it('Debe retornar formulario invalido', () => {
+  it('(1) Debe retornar formulario invalido', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     fixture.detectChanges()
@@ -65,7 +65,7 @@ describe('AppComponent', () => {
 
   /** Testing de iniciciar seion mediante un click*/
 
-  it(`Debe retornar iniciar sesion`, () => {
+  it(`(1) Debe retornar iniciar sesion`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     fixture.detectChanges()
@@ -84,7 +84,7 @@ describe('AppComponent', () => {
 
   /** */
 
-  it(`Debe retornar no poder ingresar`, () => {
+  it(`(1) Debe retornar no poder ingresar`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     fixture.detectChanges()
